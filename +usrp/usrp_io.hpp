@@ -1,4 +1,10 @@
-
+//
+// Copyright 2014-15 Ettus Research LLC
+// Copyright 2018 Ettus Research, a National Instruments Company
+// Copyright 2019 Tim Woodford
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
 #include <uhd/usrp/multi_usrp.hpp>
 
 extern std::complex<float> *recv_to_file(uhd::usrp::multi_usrp::sptr usrp,

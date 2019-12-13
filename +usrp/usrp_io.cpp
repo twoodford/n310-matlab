@@ -1,4 +1,10 @@
-#include "usrp_io.hpp"
+//
+// Copyright 2014-15 Ettus Research LLC
+// Copyright 2018 Ettus Research, a National Instruments Company
+// Copyright 2019 Tim Woodford
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//#include "usrp_io.hpp"
 #include <boost/filesystem.hpp>
 #include <chrono>
 #include <uhd/utils/thread.hpp>

@@ -1,4 +1,10 @@
-#include "mex.h"
+//
+// Copyright 2014-15 Ettus Research LLC
+// Copyright 2018 Ettus Research, a National Instruments Company
+// Copyright 2019 Tim Woodford
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//#include "mex.h"
 #include <uhd/exception.hpp>
 #include <uhd/types/tune_request.hpp>
 #include <uhd/usrp/multi_usrp.hpp>
