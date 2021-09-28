@@ -5,6 +5,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 //// Utilities for dealing with GPIO interface for PA control
+
+#pragma once
+
 #include<uhd/usrp/multi_usrp.hpp>
 
 extern void usrp_gpio_arm_trigger(uhd::usrp::multi_usrp::sptr usrp);

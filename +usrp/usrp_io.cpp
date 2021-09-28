@@ -4,7 +4,7 @@
 // Copyright 2019 Tim Woodford
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
-//#include "usrp_io.hpp"
+#include "usrp_io.hpp"
 #include <boost/filesystem.hpp>
 #include <chrono>
 #include <uhd/utils/thread.hpp>
@@ -139,7 +139,7 @@ void send_from_file(
  * recv_to_file function
  **********************************************************************/
 template <typename samp_type>
-samp_type *recv_to_file(uhd::usrp::multi_usrp::sptr usrp,
+void recv_to_file(uhd::usrp::multi_usrp::sptr usrp,
     uhd::rx_streamer::sptr rx_stream,
     const std::string& file,
     size_t samps_per_buff,
@@ -220,12 +220,13 @@ samp_type *recv_to_file(uhd::usrp::multi_usrp::sptr usrp,
     }
 }
 
-std::complex<float> *recv_to_file(uhd::usrp::multi_usrp::sptr usrp,
+void recv_to_file_fc(uhd::usrp::multi_usrp::sptr usrp,
     uhd::rx_streamer::sptr rx_stream,
     const std::string& file,
     size_t samps_per_buff,
     int num_requested_samples,
     double settling_time,
     std::vector<size_t> rx_channel_nums) {
-        return recv_to_file(usrp,rx_stream,file,samps_per_buff,num_requested_samples,settling_time,rx_channel_nums);
+        recv_to_file<std::complex<float>> (usrp,rx_stream,file,samps_per_buff,num_requested_samples,settling_time,rx_channel_nums);
+        std::cout << "END-3\n";
 }

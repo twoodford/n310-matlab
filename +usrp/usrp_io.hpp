@@ -5,9 +5,12 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 //
+
+#pragma once
+
 #include <uhd/usrp/multi_usrp.hpp>
 
-extern std::complex<float> *recv_to_file(uhd::usrp::multi_usrp::sptr usrp,
+extern void recv_to_file_fc(uhd::usrp::multi_usrp::sptr usrp,
     uhd::rx_streamer::sptr rx_stream,
     const std::string& file,
     size_t samps_per_buff,

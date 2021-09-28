@@ -267,7 +267,7 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
         boost::thread_group transmit_thread;
         transmit_thread.create_thread(boost::bind(&send_from_file, inst.stream_tx, std::string(tx_basepath), 1000, chans.size(), md));
         auto spb = inst.stream_tx->get_max_num_samps() * 10;
-        recv_to_file(inst.usrp_rx, inst.stream_rx, std::string(rx_basepath), spb, num_samp_rx, start_time, chans);
+        recv_to_file_fc(inst.usrp_rx, inst.stream_rx, std::string(rx_basepath), spb, num_samp_rx, start_time, chans);
         transmit_thread.join_all();
         if (check_clear_underflow()) {
             mexErrMsgTxt("Underflows happened.  Please try again.");

@@ -4,7 +4,7 @@
 // Copyright 2019 Tim Woodford
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
-//#include "usrp_gpio.hpp"
+#include "usrp_gpio.hpp"
 #include <unistd.h>
 
 // General definitions

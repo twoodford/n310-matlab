@@ -4,8 +4,8 @@
 // Copyright 2019 Tim Woodford
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
-//#ifndef _USRP_MEX_UTIL_H_
-#define _USRP_MEX_UTIL_H_
+
+#pragma once
 
 #include "mex.h"
 #include <ctype.h>
@@ -81,4 +81,3 @@ inline std::vector<void*> get_buffers_for_matrix(const mxArray *data, size_t num
     return bufs;
 }
 
-#endif
