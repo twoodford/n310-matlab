@@ -50,7 +50,13 @@ txData = TX_SCALE .* txData ./ max(abs(txData));
 rx_IQ = usrp.txrx_data(txData);
 
 % Process data
-rfrx.pa_ctl_tone_test(rx_IQ);
+figure(1);
+subplot(2,1,1);
+plot(real(rx_IQ));
+ylabel('I');
+subplot(2,1,2);
+plot(imag(rx_IQ));
+ylabel('Q');
 
 % Save data
 clear usrp uartfh Ts t payload txData
