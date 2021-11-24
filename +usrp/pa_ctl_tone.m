@@ -39,8 +39,8 @@ pa_ctl(CB_ENTRIES, PA_gain, TX_PA, 1, round(pa_clk_count), uartfh);
 pa_ctl(zeros(1,2), PA_gain, RX_PA, 0, round(pa_clk_count), uartfh);
 fclose(uartfh);
 
-usrp = USRPHandle(NUM_CHANNELS, Fs, Fc, RX_GAIN, TX_GAIN);
-usrp.pa_arm_trigger();
+usrp_inst = USRPHandle(NUM_CHANNELS, Fs, Fc, RX_GAIN, TX_GAIN);
+usrp_inst.pa_arm_trigger();
 
 Ts = 1/Fs;
 
@@ -51,7 +51,7 @@ payload = exp(t*1i*2*pi*20e6);%+exp(t*1i*pi*10e6); %5 and 10 MHz sinusoid as our
 txData = [payload]; %,payload*exp(1i*0.5*pi)
 txData = TX_SCALE .* txData ./ max(abs(txData));
 
-rx_IQ = usrp.txrx_data(txData);
+rx_IQ = usrp_inst.txrx_data(txData);
 
 % Process data
 figure(1);
@@ -63,6 +63,6 @@ plot(imag(rx_IQ));
 ylabel('Q');
 
 % Save data
-clear usrp uartfh Ts t payload txData
+clear usrp_inst uartfh Ts t payload txData
 SRC_SCRIPT=mfilename;
 save([SRC_SCRIPT '_' datestr(datetime('now'), 'yymmdd-HHMMSS') '.mat']);
